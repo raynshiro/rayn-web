@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RaynShiro Web</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url('https://files.catbox.moe/n7wb8t.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    .loading-screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://files.catbox.moe/n7wb8t.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .spinner {
+      border: 8px solid rgba(255, 255, 255, 0.2);
+      border-top: 8px solid white;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .btn {
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      color: white;
+      background: black;
+    }
+
+    .btn.active, .btn:active {
+      background: white;
+      color: black;
+    }
+
+    .section {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    .panel {
+      background: rgba(0,0,0,0.6);
+      padding: 15px 25px;
+      border-radius: 10px;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .panel a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.3em;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .gallery img {
+      width: 45%;
+      border-radius: 10px;
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      setTimeout(() => {
+        document.querySelector('.loading-screen').style.display = 'none';
+        document.querySelector('.container').style.display = 'flex';
+      }, 2000);
+    });
+
+    function showSection(id, btn) {
+      document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+</head>
+<body>
+
+  <div class="loading-screen">
+    <div class="spinner"></div>
+  </div>
+
+  <div class="container" style="display:none;">
+    <h1>RaynShiro Web</h1>
+    <p>Welcome to my personal site 🌐</p>
+
+    <div class="buttons">
+      <button class="btn" onclick="showSection('ig', this)">Instagram</button>
+      <button class="btn" onclick="showSection('tt', this)">Tiktok</button>
+      <button class="btn" onclick="showSection('wa', this)">WhatsApp</button>
+      <button class="btn" onclick="showSection('group', this)">Group & Channel</button>
+      <button class="btn" onclick="showSection('sewa', this)">Sewa Bot WhatsApp</button>
+      <button class="btn" onclick="showSection('about', this)">📖 Mengenal Saya Lebih Dalam</button>
+    </div>
+
+    <button class="btn" style="margin-top: 40px;" onclick="document.getElementById('audio').play()">🎵 Putar Musik</button>
+
+    <div id="ig" class="section">
+      <div class="panel"><a href="https://instagram.com/ellen_reality02" target="_blank">ellen_reality02</a></div>
+    </div>
+
+    <div id="tt" class="section">
+      <div class="panel"><a href="https://tiktok.com/@RaynShiro" target="_blank">@RaynShiro</a></div>
+    </div>
+
+    <div id="wa" class="section">
+      <div class="panel"><a href="https://wa.me/6281245594083" target="_blank">Chat Me</a></div>
+    </div>
+
+    <div id="group" class="section">
+      <div class="panel">
+        <a href="https://chat.whatsapp.com/EcJ9LNCCTgDLgYCsOHuppa" target="_blank">Group WhatsApp</a><br><br>
+        <a href="https://whatsapp.com/channel/0029Vb5oxL8B4hdOBTCX4F25" target="_blank">Channel WhatsApp</a>
+      </div>
+    </div>
+
+    <div id="sewa" class="section">
+      <div class="panel">
+        <h2>Sewa Bot WhatsApp</h2>
+        <div class="gallery">
+          <img src="https://files.catbox.moe/o94vba.jpg" alt="Foto 1">
+          <img src="https://files.catbox.moe/nf3fx0.jpg" alt="Foto 2">
+          <img src="https://files.catbox.moe/nvzgew.jpg" alt="Foto 3">
+          <img src="https://files.catbox.moe/naximn.jpg" alt="Foto 4">
+        </div>
+      </div>
+    </div>
+
+    <div id="about" class="section">
+      <div class="panel">
+        <p>Perkenalkan, saya <b>RaynShiro</b>. Anda mungkin mengenal saya dengan beberapa nama panggilan, seperti Dill, Rayn, atau Ellen. Saat ini saya masih berstatus pelajar. Meskipun demikian, saya memiliki minat dan ambisi yang kuat di dua bidang yang berbeda, yaitu pemrograman dan pelayaran.</p>
+        <p><b>Cita-Cita:</b> Cita-cita saya yang utama adalah menjadi seorang programmer profesional. Dunia pemrograman menarik minat saya karena tantangannya yang terus berkembang dan kesempatan untuk menciptakan solusi inovatif. Saya tertarik untuk menguasai berbagai bahasa pemrograman dan teknologi terkini agar dapat berkontribusi dalam pengembangan perangkat lunak yang bermanfaat.</p>
+        <p>Selain itu, saya juga memiliki ketertarikan yang mendalam terhadap dunia pelayaran. Petualangan di laut, tantangan navigasi, dan keindahan alam bawah laut selalu memikat saya. Saya melihat profesi pelaut sebagai peluang untuk menjelajahi dunia dan merasakan pengalaman yang unik dan berharga.</p>
+        <p>Meskipun terlihat berbeda, kedua cita-cita ini saling melengkapi. Ketelitian dan kemampuan memecahkan masalah yang dibutuhkan dalam pemrograman dapat saya terapkan dalam navigasi dan pengoperasian kapal. Sementara itu, pengalaman menjelajahi lautan dapat memberikan saya perspektif baru dan inspirasi dalam pengembangan perangkat lunak. Saya yakin bahwa dengan kerja keras dan dedikasi, saya dapat mencapai kedua impian saya.</p>
+      </div>
+    </div>
+  </div>
+
+  <audio id="audio" src="https://files.catbox.moe/x9g2rd.m4a" type="audio/mpeg"></audio>
+
+</body>
+</html>
